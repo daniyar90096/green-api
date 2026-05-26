@@ -3,6 +3,7 @@ const API_BASE_URL = 'https://api.green-api.com';
 const elements = {
     idInstance: document.getElementById('idInstance'),
     apiTokenInstance: document.getElementById('apiTokenInstance'),
+    btnToggleTokenVisibility: document.getElementById('btnToggleTokenVisibility'),
     phoneMessage: document.getElementById('phoneMessage'),
     messageText: document.getElementById('messageText'),
     phoneFile: document.getElementById('phoneFile'),
@@ -130,8 +131,19 @@ function sanitizePhoneInput(event) {
     event.target.value = event.target.value.replace(/\D/g, '');
 }
 
+function toggleTokenVisibility() {
+    const input = elements.apiTokenInstance;
+    const button = elements.btnToggleTokenVisibility;
+    const isPassword = input.type === 'password';
+
+    input.type = isPassword ? 'text' : 'password';
+    button.textContent = isPassword ? '🙈' : '👁';
+}
+
 elements.phoneMessage.addEventListener('input', sanitizePhoneInput);
 elements.phoneFile.addEventListener('input', sanitizePhoneInput);
+
+elements.btnToggleTokenVisibility.addEventListener('click', toggleTokenVisibility);
 
 elements.btnGetSettings.addEventListener('click', getSettings);
 elements.btnGetStateInstance.addEventListener('click', getStateInstance);
