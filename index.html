@@ -8,8 +8,10 @@
 </head>
 <body>
     <div class="container">
+
         <main class="main-content">
             <section class="panel left-panel">
+
                 <div class="form-group">
                     <label for="idInstance">ID инстанса</label>
                     <input
@@ -20,15 +22,26 @@
                     >
                 </div>
 
-                <div class="form-group">
+                <div class="form-group password-group">
                     <label for="apiTokenInstance">Apitoken инстанса</label>
-                    <input
-                        type="text"
-                        id="apiTokenInstance"
-                        placeholder="Введите Apitoken инстанса"
-                        autocomplete="off"
-                    >
+                    <div class="password-input-wrapper">
+                        <input
+                            type="password"
+                            id="apiTokenInstance"
+                            placeholder="Введите Apitoken инстанса"
+                            autocomplete="off"
+                        >
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            id="btnToggleTokenVisibility"
+                            aria-label="Показать или скрыть Apitoken"
+                        >
+                            👁
+                        </button>
+                    </div>
                 </div>
+
                 <div class="methods-grid">
                     <button class="btn btn-primary" id="btnGetSettings">
                         Получить настройки
@@ -39,6 +52,7 @@
                 </div>
 
                 <div class="method-block">
+                    <h3>Отправка сообщения</h3>
                     <div class="form-group">
                         <label for="phoneMessage">Номер телефона</label>
                         <input
